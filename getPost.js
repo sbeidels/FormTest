@@ -1,3 +1,9 @@
+/*Sarah Beidelschies
+  GET and POST requests using express-handlebars
+  11/10/15
+*/
+
+
 var express = require('express');
 
 var app = express();
@@ -11,6 +17,13 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 1234);
 
+/*For a get request,
+   for each key in query, add the key/value pair to array
+   create the object content
+   set the .getRequest property to true
+   set the .data property to the key/value array
+   render page using handlebars
+*/
 app.get("/", function(req, res) {
 	var NVPairs = [];
 	for (var name in req.query) {
@@ -23,6 +36,15 @@ app.get("/", function(req, res) {
 	res.render("queryString", content);
 });
 
+/*for a post request
+  for each key in query, add the key/value pair to array
+   create the object content
+   set the .postRequest property to true
+   set the .data property to the key/value array
+   for each key in body, add key/value pair to array
+   set the .bodyData property to the body key/value array
+   render page using handlebars
+*/
 app.post("/", function(req, res) {
 	var NVPairs = [];
 	for (var name in req.query) {
@@ -57,5 +79,5 @@ app.use(function(err, req, res, next){
 });
 
 app.listen(app.get('port'), function(){
-  console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
+  console.log('Express started on http://52.26.106.49:' + app.get('port') + '; press Ctrl-C to terminate.');
 });

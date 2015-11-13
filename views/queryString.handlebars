@@ -1,3 +1,7 @@
+{{!--Sarah Beidelschies --}}
+{{!--get and post request handlebars file--}}
+
+{{!--if getRequest is true, print get header, else print post header--}}
 {{#if getRequest}}
 
 <h1>Get Request Data</h1>
@@ -7,6 +11,8 @@
 <h1>Post Request Data </h1>
 {{/if}}
 
+{{!--for each value in query string, add name/value to table--}}
+{{!--does not matter if this is coming from a get or a post--}}
 <table style="border:solid 2px;">
   <thead>
     <th>Name</th>
@@ -20,6 +26,8 @@
   {{/each}}
 </table>
 
+{{!--only render the table below if it is for a post request--}}
+{{!--add name/value to table from the req body--}}
 {{#if postRequest}}
 
 </br>
