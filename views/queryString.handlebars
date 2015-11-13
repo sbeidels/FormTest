@@ -1,0 +1,13 @@
+<h1>Get Request Data</h1>
+<table style="border:solid 2px;">
+  <thead>
+    <th>Name</th>
+	<th>Value</th>
+  <tbody>
+    {{#each data}}
+	<tr>
+    <td>{{this.name}} </td>
+    <td>{{this.value}} </td>
+	</tr>
+  {{/each}}
+</table>

@@ -1,0 +1,29 @@
+<h1>Post Request Data</h1>
+<table style="border:solid 2px;">
+  <caption>Query Data</caption>
+  <thead>
+    <th>Name</th>
+	<th>Value</th>
+  <tbody>
+    {{#each data}}
+	<tr>
+    <td>{{this.name}} </td>
+    <td>{{this.value}} </td>
+	</tr>
+  {{/each}}
+</table>
+</br>
+</br>
+<table style="border:solid 2px;">
+  <caption>Body Data </caption>
+  <thead>
+    <th>Name</th>
+	<th>Value</th>
+  <tbody>
+    {{#each bodyData}}
+	<tr>
+    <td>{{this.name}} </td>
+    <td>{{this.value}} </td>
+	</tr>
+  {{/each}}
+</table>
