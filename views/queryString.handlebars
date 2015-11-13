@@ -1,4 +1,12 @@
+{{#if getRequest}}
+
 <h1>Get Request Data</h1>
+
+{{else}}
+
+<h1>Post Request Data </h1>
+{{/if}}
+
 <table style="border:solid 2px;">
   <thead>
     <th>Name</th>
@@ -11,3 +19,23 @@
 	</tr>
   {{/each}}
 </table>
+
+{{#if postRequest}}
+
+</br>
+</br>
+<table style="border:solid 2px;">
+  <caption>Body Data </caption>
+  <thead>
+    <th>Name</th>
+	<th>Value</th>
+  <tbody>
+    {{#each bodyData}}
+	<tr>
+    <td>{{this.name}} </td>
+    <td>{{this.value}} </td>
+	</tr>
+  {{/each}}
+</table>
+
+{{/if}}

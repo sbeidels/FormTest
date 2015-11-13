@@ -17,13 +17,14 @@ app.get("/", function(req, res) {
 		NVPairs.push({"name":name,"value":req.query[name]});
 	}
 	var content = {};
+	content.getRequest = true;
+	content.postRequest = false;
 	content.data = NVPairs;
 	res.render("queryString", content);
 });
 
 app.post("/", function(req, res) {
 	var NVPairs = [];
-	
 	for (var name in req.query) {
 		NVPairs.push({"name":name,"value":req.query[name]});
 		}
@@ -37,7 +38,9 @@ app.post("/", function(req, res) {
 	}
 	
 	content.bodyData = NVPairsBody;
-	res.render("postRequest", content);
+	content.postRequest = true;
+	content.getRequest = false;
+	res.render("queryString", content);
 });
 
 
